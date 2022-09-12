@@ -1,8 +1,5 @@
-module Fp8 where
-
 -- [FP 8 - Recursive Functions - YouTube](https://www.youtube.com/watch?v=WawJ8LArl54)
-{-- 
---}
+
 
 -- ## Introduction
 -- Many functions can naturally be defined in terms of other functions.
@@ -179,20 +176,25 @@ qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
 -- Without looking at the standard prelude, define the following library functions 
 -- using recursion:
 
--- * Decide if all logical values in a list are true:
+-- * Decide if all logical values in a list are true [x]:
 and :: [Bool] -> Bool
 and [] = True
-and (x:xs) = x && Fp8.and xs
+and (x:xs) = x && Main.and xs
 
--- * Concatenate a list of lists:
+-- * Concatenate a list of lists [x]:
 concat :: [[a]] -> [a]
 concat [] = []
-concat (xs:xss) = xs ++ Fp8.concat xss
+concat (xs:xss) = xs ++ Main.concat xss
 
 -- * Produce a list with n identical elements:
 replicate :: Int -> a -> [a]
 replicate 0 a = []
-replicate n a = [a] ++ Fp8.replicate (n-1) a
+replicate n a = [a] ++ Main.replicate (n-1) a
+
+--    better solution
+replicate' :: Int -> a -> [a]
+replicate' 0 x = []
+replicate' n x = x : replicate' (n-1) x
 
 
 -- * Select the nth element of a list
@@ -200,13 +202,13 @@ replicate n a = [a] ++ Fp8.replicate (n-1) a
 -- xs !! n, n > length xs = error
 [] !! _ = error "empty list"
 (x:xs) !! 0  = x
-(x:xs) !! n = if n > length xs then error "Index out of range" else xs Fp8.!! (n-1)
+(x:xs) !! n = if n > length xs then error "Index out of range" else xs Main.!! (n-1)
 
 
 -- * Decide if a value is an element of a list
 elem :: Eq a => a -> [a] -> Bool
 elem a [] = False
-elem a (x:xs) = (a == x) || Fp8.elem a xs
+elem a (x:xs) = (a == x) || Main.elem a xs
 
 {-- 
 ## Exercice 2
@@ -221,7 +223,7 @@ merge [2,5,6] [1,3,4] -- [1,2,3,4,5,6]
 merge :: Ord a => [a] -> [a] -> [a]
 merge [] ys = ys
 merge xs [] = xs
-merge (x:xs) (y:ys) = if x <= y then [x] ++ merge xs (y:ys) else [y] ++ merge (x:xs) (ys)
+merge (x:xs) (y:ys) = if x <= y then x : merge xs (y:ys) else y : merge (x:xs) ys
 
 
 {-- 
@@ -235,3 +237,27 @@ that implements merge sort which can be specified by the following two rules:
 
 --}
 
+msort :: Ord a => [a] -> [a]
+msort [] = []
+msort [x] = [x]
+msort xs = merge (msort ys) (msort zs)
+  where (ys, zs) = halve xs
+
+
+halve :: [a] -> ([a], [a])
+halve xs = (take n xs, drop n xs)
+        where n = length xs `div` 2
+
+-- Insert a Integer into a sorted list
+-- insert 3 [1,2,4,5] -- [1,2,3,4,5]
+insert :: Int -> [Int] -> [Int]
+insert n [] = [n]
+insert n (x:xs) = if n > x then x : insert n xs else n : (x:xs)
+
+
+-- Insertion Sort
+--  * An empty list is already sorted
+--  * insert the first element
+isort :: [Int] -> [Int]
+isort [] = []
+isort (x:xs) = insert x (isort xs)

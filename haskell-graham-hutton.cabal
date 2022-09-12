@@ -1,5 +1,5 @@
 cabal-version:      2.4
-name:               graham-hutton-haskell
+name:               haskell-graham-hutton
 version:            0.1.0.0
 
 -- A short (one-line) description of the package.
@@ -19,9 +19,11 @@ maintainer:         frederic.latour@enesyssoftware.com
 -- A copyright notice.
 -- copyright:
 -- category:
-extra-source-files: CHANGELOG.md
+extra-source-files:
+    CHANGELOG.md
+    readme.md
 
-executable graham-hutton-haskell
+executable haskell-graham-hutton
     main-is:          Main.hs
 
     -- Modules included in this executable, other than Main.
@@ -29,6 +31,9 @@ executable graham-hutton-haskell
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
-    build-depends:    base ^>=4.14.3.0
+    build-depends:    
+        base ^>=4.14.3.0,
+        haskell-say ^>=1.0.0.0,
+        HUnit ^>=1.6.2.0
     hs-source-dirs:   app
     default-language: Haskell2010

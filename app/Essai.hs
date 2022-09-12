@@ -1,7 +1,5 @@
 module Essai where
 
-mult x y = x * y
-
 
 sourceList :: [Int]
 sourceList = [1..100]
