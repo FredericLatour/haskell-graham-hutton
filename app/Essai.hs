@@ -1,5 +1,7 @@
 module Essai where
-
+import Data.Char
+import qualified Data.Text as T
+import Data.Text (Text)
 
 sourceList :: [Int]
 sourceList = [1..100]
@@ -66,3 +68,46 @@ mercury = Planet (0.2408467)
 venus = Planet (0.61519726)
 earth = Planet (1.0)
 
+isPangram :: String -> Bool
+isPangram text = and $ map (\e -> elem e lowerText) ['a'..'z']
+                  where lowerText = map toLower text
+
+
+responseFor :: String -> String
+responseFor xs 
+  | null resp = "Fine. Be that way!"
+  | upperCase resp && question resp = "Calm down, I know what I'm doing!" 
+  | question resp = "Sure."
+  | upperCase resp = "Whoa, chill out!"
+  | otherwise = "Whatever."
+  where resp = filter (not.isSpace) xs
+        question resp = last resp == '?' :: Bool
+        upperCase resp = let alphaChars = filter isAlpha resp
+                        in (not $ null alphaChars) && (all isUpper alphaChars)
+
+testUp xs 
+  | null mxs = "Null"
+  | otherwise = "Not Null"
+  where mxs = filter (not . isSpace) xs
+
+upperCase resp = let alphaChars = filter isAlpha resp
+                 in (not $ null alphaChars) && (all isUpper alphaChars)
+
+upperCase' xs = all isUpper resp
+                where resp = filter (not.isSpace) xs
+
+responseFor' :: Text -> Text
+responseFor' t 
+  | T.null resp = T.pack "Fine. Be that way!"
+  | upperCase resp && question resp = T.pack "Calm down, I know what I'm doing!" 
+  | question resp = T.pack "Sure."
+  | upperCase resp = T.pack "Whoa, chill out!"
+  | otherwise = T.pack "Whatever."
+  where resp = T.strip t
+        question resp = T.last resp == '?'
+        upperCase resp = let alphaChars = T.filter isAlpha resp
+                        in (not $ T.null alphaChars) && (alphaChars == T.toUpper alphaChars)
+
+
+
+someText = T.pack "   Ceci, est un test ?   "

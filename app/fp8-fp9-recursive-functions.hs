@@ -1,5 +1,5 @@
--- [FP 8 - Recursive Functions - YouTube](https://www.youtube.com/watch?v=WawJ8LArl54)
 
+-- [FP 8 - Recursive Functions - YouTube](https://www.youtube.com/watch?v=WawJ8LArl54)
 
 -- ## Introduction
 -- Many functions can naturally be defined in terms of other functions.
