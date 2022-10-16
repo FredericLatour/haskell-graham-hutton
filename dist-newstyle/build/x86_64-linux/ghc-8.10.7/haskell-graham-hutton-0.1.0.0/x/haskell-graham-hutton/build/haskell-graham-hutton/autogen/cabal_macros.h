@@ -30,26 +30,16 @@
   (major1) == 4 && (major2) <  14 || \
   (major1) == 4 && (major2) == 14 && (minor) <= 3)
 #endif /* MIN_VERSION_base */
-/* package haskell-say-1.0.0.0 */
-#ifndef VERSION_haskell_say
-#define VERSION_haskell_say "1.0.0.0"
-#endif /* VERSION_haskell_say */
-#ifndef MIN_VERSION_haskell_say
-#define MIN_VERSION_haskell_say(major1,major2,minor) (\
-  (major1) <  1 || \
-  (major1) == 1 && (major2) <  0 || \
-  (major1) == 1 && (major2) == 0 && (minor) <= 0)
-#endif /* MIN_VERSION_haskell_say */
 
-/* tool gcc-11 */
+/* tool gcc-8 */
 #ifndef TOOL_VERSION_gcc
-#define TOOL_VERSION_gcc "11"
+#define TOOL_VERSION_gcc "8"
 #endif /* TOOL_VERSION_gcc */
 #ifndef MIN_TOOL_VERSION_gcc
 #define MIN_TOOL_VERSION_gcc(major1,major2,minor) (\
-  (major1) <  11 || \
-  (major1) == 11 && (major2) <  0 || \
-  (major1) == 11 && (major2) == 0 && (minor) <= 0)
+  (major1) <  8 || \
+  (major1) == 8 && (major2) <  0 || \
+  (major1) == 8 && (major2) == 0 && (minor) <= 0)
 #endif /* MIN_TOOL_VERSION_gcc */
 /* tool ghc-8.10.7 */
 #ifndef TOOL_VERSION_ghc
@@ -101,15 +91,15 @@
   (major1) == 0 && (major2) <  68 || \
   (major1) == 0 && (major2) == 68 && (minor) <= 7)
 #endif /* MIN_TOOL_VERSION_hsc2hs */
-/* tool pkg-config-0.29.2 */
+/* tool pkg-config-0.29 */
 #ifndef TOOL_VERSION_pkg_config
-#define TOOL_VERSION_pkg_config "0.29.2"
+#define TOOL_VERSION_pkg_config "0.29"
 #endif /* TOOL_VERSION_pkg_config */
 #ifndef MIN_TOOL_VERSION_pkg_config
 #define MIN_TOOL_VERSION_pkg_config(major1,major2,minor) (\
   (major1) <  0 || \
   (major1) == 0 && (major2) <  29 || \
-  (major1) == 0 && (major2) == 29 && (minor) <= 2)
+  (major1) == 0 && (major2) == 29 && (minor) <= 0)
 #endif /* MIN_TOOL_VERSION_pkg_config */
 /* tool runghc-8.10.7 */
 #ifndef TOOL_VERSION_runghc
@@ -121,15 +111,15 @@
   (major1) == 8 && (major2) <  10 || \
   (major1) == 8 && (major2) == 10 && (minor) <= 7)
 #endif /* MIN_TOOL_VERSION_runghc */
-/* tool strip-2.38 */
+/* tool strip-2.31 */
 #ifndef TOOL_VERSION_strip
-#define TOOL_VERSION_strip "2.38"
+#define TOOL_VERSION_strip "2.31"
 #endif /* TOOL_VERSION_strip */
 #ifndef MIN_TOOL_VERSION_strip
 #define MIN_TOOL_VERSION_strip(major1,major2,minor) (\
   (major1) <  2 || \
-  (major1) == 2 && (major2) <  38 || \
-  (major1) == 2 && (major2) == 38 && (minor) <= 0)
+  (major1) == 2 && (major2) <  31 || \
+  (major1) == 2 && (major2) == 31 && (minor) <= 0)
 #endif /* MIN_TOOL_VERSION_strip */
 
 #ifndef CURRENT_COMPONENT_ID

@@ -42,12 +42,12 @@ getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir, getSysconfDir :: 
 
 
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
-bindir     = "/home/frederic/.cabal/bin"
-libdir     = "/home/frederic/.cabal/lib/x86_64-linux-ghc-8.10.7/haskell-graham-hutton-0.1.0.0-inplace-haskell-graham-hutton"
-dynlibdir  = "/home/frederic/.cabal/lib/x86_64-linux-ghc-8.10.7"
-datadir    = "/home/frederic/.cabal/share/x86_64-linux-ghc-8.10.7/haskell-graham-hutton-0.1.0.0"
-libexecdir = "/home/frederic/.cabal/libexec/x86_64-linux-ghc-8.10.7/haskell-graham-hutton-0.1.0.0"
-sysconfdir = "/home/frederic/.cabal/etc"
+bindir     = "/home/jovyan/.cabal/bin"
+libdir     = "/home/jovyan/.cabal/lib/x86_64-linux-ghc-8.10.7/haskell-graham-hutton-0.1.0.0-inplace-haskell-graham-hutton"
+dynlibdir  = "/home/jovyan/.cabal/lib/x86_64-linux-ghc-8.10.7"
+datadir    = "/home/jovyan/.cabal/share/x86_64-linux-ghc-8.10.7/haskell-graham-hutton-0.1.0.0"
+libexecdir = "/home/jovyan/.cabal/libexec/x86_64-linux-ghc-8.10.7/haskell-graham-hutton-0.1.0.0"
+sysconfdir = "/home/jovyan/.cabal/etc"
 
 getBinDir     = catchIO (getEnv "haskell_graham_hutton_bindir")     (\_ -> return bindir)
 getLibDir     = catchIO (getEnv "haskell_graham_hutton_libdir")     (\_ -> return libdir)
