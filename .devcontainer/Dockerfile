@@ -1,1 +1,1 @@
-FROM gibiansky/ihaskell
+FROM ghcr.io/ihaskell/ihaskell-notebook:master
